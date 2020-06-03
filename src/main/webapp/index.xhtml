@@ -1,16 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+            <div class="row">
+                <div class="home">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <div class="left_content">
+                            <h2>Almacen</h2>
+
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <div class="right_content">
+                            <h:form prependId="false">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search" >
+                                 <p:commandLink id="bodega" 
+                                                
+                                                action="#{bodegaController.listarBodegas()}" 
+                                                style="margin-right:20px;">
+                                    <h:outputText value="bodega" />
+                                </p:commandLink>
+                        </div>
+                        
+
+                                    
+                    </h:form>
+
+                            
+
+                          
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+     
 </html>
+
