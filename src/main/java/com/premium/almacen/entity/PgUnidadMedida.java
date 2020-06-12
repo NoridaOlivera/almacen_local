@@ -9,18 +9,25 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -49,6 +56,8 @@ public class PgUnidadMedida implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PG_UNIDAD_MEDIDA")
+    @SequenceGenerator(name = "SQ_PG_UNIDAD_MEDIDA", sequenceName = "SQ_PG_UNIDAD_MEDIDA", allocationSize = 1)
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull
@@ -85,6 +94,12 @@ public class PgUnidadMedida implements Serializable {
     @Column(name = "FECHA_MODIFICACION")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaModificacion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadMedidaInicial")
+    private List<PgConversionUnidad> pgConversionUnidadList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadMedidaFinal")
+    private List<PgConversionUnidad> pgConversionUnidadList1;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadMedida")
+    private List<AlMovimientoDetalle> alMovimientoDetalleList;
 
     public PgUnidadMedida() {
     }
@@ -181,6 +196,33 @@ public class PgUnidadMedida implements Serializable {
 
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
+    }
+
+    @XmlTransient
+    public List<PgConversionUnidad> getPgConversionUnidadList() {
+        return pgConversionUnidadList;
+    }
+
+    public void setPgConversionUnidadList(List<PgConversionUnidad> pgConversionUnidadList) {
+        this.pgConversionUnidadList = pgConversionUnidadList;
+    }
+
+    @XmlTransient
+    public List<PgConversionUnidad> getPgConversionUnidadList1() {
+        return pgConversionUnidadList1;
+    }
+
+    public void setPgConversionUnidadList1(List<PgConversionUnidad> pgConversionUnidadList1) {
+        this.pgConversionUnidadList1 = pgConversionUnidadList1;
+    }
+
+    @XmlTransient
+    public List<AlMovimientoDetalle> getAlMovimientoDetalleList() {
+        return alMovimientoDetalleList;
+    }
+
+    public void setAlMovimientoDetalleList(List<AlMovimientoDetalle> alMovimientoDetalleList) {
+        this.alMovimientoDetalleList = alMovimientoDetalleList;
     }
 
     @Override

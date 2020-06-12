@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Almacen</title>
+    </h:head>
+    <h:body><f:view>
+
+
+            <h:form>
+                
+                <p:dataTable value="#{producctoController.listarProducto()}" paginator="true" var="item">
+                     <f:facet name="header">
+                       Lista de Productos
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Codigo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codigo}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombre}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripcion"/>
+                        </f:facet>
+                        <h:outputText value="#{item.descripcion}"/>
+                    </p:column>
+                   
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="CodigoQr"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codigoQr}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Garantia"/>
+                        </f:facet>
+                        <h:outputText value="#{item.garantia}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Caracteristicas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.caracteristicas}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Imagen"/>
+                        </f:facet>
+                        <h:outputText value="#{item.imagen}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Inventario"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inventario}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Compuesto"/>
+                        </f:facet>
+                        <h:outputText value="#{item.compuesto}"/>
+                    </p:column>
+                   <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdUbicacionBodega"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUbicacionBodega}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+        
+    </h:body>
+</html>
+

@@ -1,44 +1,36 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>ALMACEN</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl>
+                   <p:autoUpdate />
+            </p:growl>
 
-            <div class="row">
-                <div class="home">
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <div class="left_content">
-                            <h2>Almacen</h2>
+               <p:panelMenu style="width:200px">
+                   <p:submenu label="Almacen">
+                       <p:menuitem value="Bodega" url="http://localhost:8080/almacen/faces/secure/bodega/listar.xhtml"  />
+                       <p:menuitem value="Marcas" url="http://localhost:8080/almacen/faces/secure/marca/listar.xhtml"  />
+                       <p:menuitem value="Unidad de Medidas" url="http://localhost:8080/almacen/faces/secure/unidadMedida/listar.xhtml" />
+                       <p:menuitem value="Moneda"  />
+                       <p:menuitem value="Inventario"  />
+                       <p:menuitem value="Ubicacion de Bodegas" url="http://localhost:8080/almacen/faces/secure/ubicacionBodega/listar.xhtml" />
 
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-9 col-xs-9">
-                        <div class="right_content">
-                            <h:form prependId="false">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search" >
-                                 <p:commandLink id="bodega" 
-                                                
-                                                action="#{bodegaController.listarBodegas()}" 
-                                                style="margin-right:20px;">
-                                    <h:outputText value="bodega" />
-                                </p:commandLink>
-                        </div>
-                        
+                   </p:submenu>
+               </p:panelMenu>
+                <p:panelMenu style="width:200px">
+                       <p:submenu label="Administrar">
+                           <p:menuitem value="crear"   />
+                           
 
-                                    
-                    </h:form>
-
-                            
-
-                          
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-     
+                       </p:submenu>
+                   </p:panelMenu>
+                </h:form>
+    </h:body>
 </html>
 

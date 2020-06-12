@@ -7,31 +7,33 @@ package com.premium.almacen.controller.bodega;
 
 import com.premium.almacen.ejb.PgBodegaFacade;
 import com.premium.almacen.entity.PgBodega;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
 
 /**
  *
  * @author 57311
  */
 @Named(value = "bodegaController")
-@SessionScoped
+@ViewScoped
 public class BodegaController implements Serializable {
 
     /**
      * Creates a new instance of BodegaController
      */
-    public BodegaController() {
-    }
+    
     
     @EJB
     private PgBodegaFacade bodegaFacade;
     
     private PgBodega bodega;
-
+    
     public PgBodega getBodega() {
         return bodega;
     }
@@ -41,8 +43,12 @@ public class BodegaController implements Serializable {
     }
     
     
+    public BodegaController() {
+        this.bodega = new PgBodega();
+    }
+
     
-    
+       
     public List<PgBodega> listarBodegas(){
         return this.bodegaFacade.findAll();
     }
@@ -53,19 +59,27 @@ public class BodegaController implements Serializable {
     }
     
     public String Editar(){
-        this.bodegaFacade.edit(bodega);
+        this.bodegaFacade.edit(this.bodega);
         this.bodega = new PgBodega();
         return "listar";
     }
     
-    public String IniciarCrearBodega(){
-        this.bodegaFacade.create(bodega);
-        bodega = new PgBodega();
-        return ("crear");
-    }
-    public String CrearBodega(){
-        this.bodegaFacade.create(bodega);
+    public String iniciarCrearBodega(){
         this.bodega = new PgBodega();
+        java.util.Date fecha = new Date();
+        bodega.setFechaCreacion(fecha);
+        bodega.setFechaModificacion(fecha);
+        return "crear";
+    }
+    
+    public String crearBodega(){
+       bodegaFacade.create(bodega);
+        this.bodega = new PgBodega();
+        return "listar";
+    }
+    
+    public String eliminarBodega(PgBodega pgBodega){
+        this.bodegaFacade.remove(pgBodega);
         return "listar";
     }
     
