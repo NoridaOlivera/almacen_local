@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body><f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Información del Producto"/></h1>
+                <p:panelGrid columns="2">
+                    
+                    <p:outputLabel value="Codigo:" for="codigo" />
+                    <p:inputText id="codigo" value="#{productoController.producto.codigo}" title="Codigo" required="true" requiredMessage="The Codigo field is required."/>
+                    <p:outputLabel value="Nombre:" for="nombre" />
+                    <p:inputText id="nombre" value="#{productoController.producto.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                    <p:outputLabel value="Descripcion:" for="descripcion" />
+                    <p:inputText id="descripcion" value="#{productoController.producto.descripcion}" title="Descripcion" />
+                    <p:outputLabel value="IdUnidadMedida:" for="idUnidadMedida" />
+                    <p:inputText id="idUnidadMedida" value="#{productoController.producto.idUnidadMedida}" title="IdUnidadMedida" required="true" requiredMessage="The IdUnidadMedida field is required."/>
+                    <p:outputLabel value="CodigoQr:" for="codigoQr" />
+                    <p:inputText id="codigoQr" value="#{productoController.producto.codigoQr}" title="CodigoQr" />
+                    <p:outputLabel value="Referencia:" for="referencia" />
+                    <p:inputText id="referencia" value="#{productoController.producto.referencia}" title="Referencia" />
+                    <p:outputLabel value="ManejaLote:" for="manejaLote" />
+                    <p:inputText id="manejaLote" value="#{productoController.producto.manejaLote}" title="ManejaLote" required="true" requiredMessage="The ManejaLote field is required."/>
+                    <p:outputLabel value="NombreLote:" for="nombreLote" />
+                    <p:inputText id="nombreLote" value="#{productoController.producto.nombreLote}" title="NombreLote" />
+                    <p:outputLabel value="Garantia:" for="garantia" />
+                    <p:inputText id="garantia" value="#{productoController.producto.garantia}" title="Garantia" />
+                    
+                    
+                    <p:outputLabel value="Inventario:" for="inventario" />
+                    <p:inputText id="inventario" value="#{productoController.producto.inventario}" title="Inventario" required="true" requiredMessage="The Inventario field is required."/>
+                    <p:outputLabel value="ActivoFijo:" for="activoFijo" />
+                    <p:inputText id="activoFijo" value="#{productoController.producto.activoFijo}" title="ActivoFijo" required="true" requiredMessage="The ActivoFijo field is required."/>
+                    
+                    <p:outputLabel value="Compuesto:" for="compuesto" />
+                    <p:inputText id="compuesto" value="#{productoController.producto.compuesto}" title="Compuesto" required="true" requiredMessage="The Compuesto field is required."/>
+                    
+                    <p:commandButton value="Siguiente" />
+                    
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+
+      
+    </h:body>
+</html>
+
